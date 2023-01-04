@@ -1,3 +1,4 @@
+import 'package:boat_co/constants/controllers.dart';
 import 'package:boat_co/constants/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 4), () => Get.toNamed('home'));
+    Future.delayed(Duration(seconds: 4), () {
+      products.getAllProducts();
+      Get.offAllNamed('/home');
+    });
   }
 
   @override

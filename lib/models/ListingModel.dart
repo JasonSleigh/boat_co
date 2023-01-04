@@ -1,31 +1,27 @@
 // create a boat listing model
 class ListingModel {
-  final String id;
+  final int id;
   final String title;
   final String description;
-  final String price;
-  final String location;
+  final int price;
+  final double lat;
+  final double lng;
   final String image;
   final String owner;
   final String ownerEmail;
   final String ownerPhone;
-  final String ownerImage;
-  final String ownerLocation;
-  final String ownerBio;
 
   ListingModel({
     required this.id,
     required this.title,
     required this.description,
     required this.price,
-    required this.location,
+    required this.lat,
+    required this.lng,
     required this.image,
     required this.owner,
     required this.ownerEmail,
     required this.ownerPhone,
-    required this.ownerImage,
-    required this.ownerLocation,
-    required this.ownerBio,
   });
 
   factory ListingModel.fromJson(Map<String, dynamic> json) {
@@ -34,14 +30,12 @@ class ListingModel {
       title: json['title'],
       description: json['description'],
       price: json['price'],
-      location: json['location'],
+      lat: json['lat'],
+      lng: json['lng'],
       image: json['image'],
-      owner: json['owner'],
-      ownerEmail: json['ownerEmail'],
-      ownerPhone: json['ownerPhone'],
-      ownerImage: json['ownerImage'],
-      ownerLocation: json['ownerLocation'],
-      ownerBio: json['ownerBio'],
+      owner: json['owners_name'],
+      ownerEmail: json['owners_email'],
+      ownerPhone: json['owners_phone'],
     );
   }
 }

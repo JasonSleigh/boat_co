@@ -15,17 +15,19 @@ void main() async {
   };
 
   var body = jsonEncode({
-    "email": "test@test.com",
+    "email": "test@example.com",
     "password": "password",
   });
 
-  final response =
-      await http.post(newUrl, headers: appHeaders, body: jsonEncode({}));
+  final response = await http.post(newUrl, headers: appHeaders, body: body);
+
+  var jsonData = jsonDecode(response.body);
 
   group('Authentication', () {
-    test('Test for 422', () {
+    test('Test for 200', () {
       int responseCode = response.statusCode;
-      expect(responseCode, 422);
+      print(jsonData['access_token']);
+      expect(responseCode, 200);
     });
   });
 }

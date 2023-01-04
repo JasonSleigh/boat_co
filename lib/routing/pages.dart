@@ -1,5 +1,6 @@
 import 'package:boat_co/pages/authentication/login.dart';
 import 'package:boat_co/pages/authentication/registration.dart';
+import 'package:boat_co/pages/basket.dart';
 import 'package:boat_co/pages/details_page.dart';
 import 'package:boat_co/pages/home.dart';
 import 'package:boat_co/splashPage.dart';
@@ -27,6 +28,10 @@ abstract class AppPages {
     GetPage(
       name: Routes.DETAILPAGE,
       page: () => DetailsView(),
+    ),
+    GetPage(
+      name: Routes.BASKET,
+      page: () => BasketPage(),
     ),
   ];
 }

@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
       loginButtonColor: mainBlue,
       loginButtonPress: () {
         if (_formKey.currentState!.validate()) {
-          // authController.login();
+          authController.login();
         } else {
           Get.snackbar("Form Error", "Please fill out the form correctly");
         }
