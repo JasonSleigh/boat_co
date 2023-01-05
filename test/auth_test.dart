@@ -26,7 +26,8 @@ void main() async {
   group('Authentication', () {
     test('Test for 200', () {
       int responseCode = response.statusCode;
-      print(jsonData['access_token']);
+      // print(jsonData['access_token']);
+      print(response.body);
       expect(responseCode, 200);
     });
   });

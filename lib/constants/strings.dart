@@ -6,7 +6,7 @@ import '../models/ListingModel.dart';
 const String boatAnimation = 'assets/icons/loading_boat.json';
 
 // base url
-const String baseUrl = 'http://localhost:8000/api/';
+const String baseUrl = 'http://boatbackend.slaydesign.co.za/api/';
 
 String accessToken = "";
 
