@@ -2,6 +2,7 @@ import 'package:boat_co/constants/colors.dart';
 import 'package:boat_co/constants/controllers.dart';
 import 'package:boat_co/constants/exports.dart';
 import 'package:boat_co/logic/recall_database.dart';
+import 'package:boat_co/widgets/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -15,25 +16,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     recallData();
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(
-              onPressed: () {
-                products.getAllProducts();
-              },
-              icon: Icon(
-                Icons.search,
-                color: mainBlue,
-              )),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart_checkout_outlined,
-              color: mainBlue,
-            ),
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(120),
+        child: CustomAppBar(title: "Home",),
       ),
       body: Obx(
         () {

@@ -3,14 +3,13 @@ import 'dart:convert';
 import 'package:boat_co/constants/exports.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class OrderController {
   checkOut({
-    required String name,
-    required String image,
-    required int price,
+    required List<int> productIds,
   }) async {
-    var url = baseUrl + "products/checkout";
+    var url = baseUrl + "checkout";
 
     var newUrl = Uri.parse(url);
 
@@ -19,11 +18,7 @@ class OrderController {
       "Accept": "application/json",
     };
 
-    var body = jsonEncode({
-      "name": name,
-      "images": image,
-      "unit_amount": price,
-    });
+    var body = jsonEncode({"products": productIds});
 
     var response = await http.post(newUrl, headers: appHeaders, body: body);
 
@@ -32,8 +27,7 @@ class OrderController {
     try {
       switch (response.statusCode) {
         case 200:
-          //TODO: send them to stripe
-
+          launchUrl(Uri.parse(jsonResponse["session_url"])).then((value) => Get.offAllNamed('/home'));
           break;
         default:
           Get.snackbar("Error ${response.statusCode}", jsonResponse["message"]);
