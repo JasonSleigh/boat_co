@@ -35,7 +35,7 @@ class OrderController extends Controller
 			"name" => $product->title,
 			"images" => [$product->image]
 		    ],
-		    'unit_amount' => $product->price * 1,
+		    'unit_amount' => $product->price * 100,
 		],
 		'quantity' => 1,
 	    ];
