@@ -29,10 +29,10 @@ class OrderController extends Controller {
                 'price_data' => [
                     'currency' => 'gbp',
                     'product_data' => [
-                        'name' => $product->name,
+                        'name' => $product->title,
                         'images' => [$product->image]
                     ],
-                    'unit_amount' => $product->price * 100,
+                    'unit_amount' => $product->price * 1,
                 ],
                 'quantity' => 1,
             ];
